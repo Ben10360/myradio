@@ -1,217 +1,151 @@
-
 ```html
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Breaking Bad Radio</title>
+<title>Breaking Radio</title>
 
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
 
-    height:100vh;
+height:100vh;
 
-    display:flex;
-    justify-content:center;
-    align-items:center;
+display:flex;
+justify-content:center;
+align-items:center;
 
-    font-family:sans-serif;
+font-family:Arial, sans-serif;
 
-    background:
-    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
-    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop');
+background:#000;
 
-    background-size:cover;
-    background-position:center;
+background-image:
+linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+url('https://wallpapercave.com/wp/wp7009536.jpg');
 
-    overflow:hidden;
+background-size:cover;
+background-position:center;
+
+color:white;
 
 }
 
 .player{
 
-    width:370px;
+width:350px;
 
-    background:rgba(20,20,20,0.85);
+background:rgba(0,0,0,0.7);
 
-    border:2px solid #00ff88;
+border:2px solid #00ff88;
 
-    border-radius:25px;
+border-radius:25px;
 
-    padding:30px;
+padding:30px;
 
-    text-align:center;
+text-align:center;
 
-    backdrop-filter:blur(10px);
+backdrop-filter:blur(8px);
 
-    box-shadow:
-    0 0 20px #00ff88,
-    0 0 40px rgba(0,255,136,0.3);
+box-shadow:0 0 25px #00ff88;
 
 }
 
 .logo{
 
-    font-size:80px;
-
-    margin-bottom:10px;
+font-size:70px;
+margin-bottom:10px;
 
 }
 
 h1{
 
-    color:#00ff88;
+font-size:32px;
+color:#00ff88;
 
-    font-size:35px;
-
-    margin-bottom:10px;
-
-    letter-spacing:2px;
+margin-bottom:10px;
 
 }
 
 .subtitle{
 
-    color:#ccc;
-
-    margin-bottom:20px;
+color:#ccc;
+margin-bottom:20px;
 
 }
 
 #songName{
 
-    color:#fff;
+margin-top:20px;
 
-    margin-top:20px;
+font-size:15px;
 
-    font-size:15px;
-
-    word-break:break-word;
+color:#fff;
 
 }
 
 audio{
 
-    width:100%;
+width:100%;
 
-    margin-top:20px;
-
-    filter:hue-rotate(80deg);
+margin-top:20px;
 
 }
 
 .buttons{
 
-    margin-top:20px;
+margin-top:20px;
 
 }
 
 button{
 
-    background:#00ff88;
+background:#00ff88;
 
-    border:none;
+border:none;
 
-    color:black;
+padding:12px 18px;
 
-    padding:12px 18px;
+margin:5px;
 
-    margin:5px;
+border-radius:12px;
 
-    border-radius:12px;
+font-size:16px;
 
-    font-size:16px;
+font-weight:bold;
 
-    font-weight:bold;
+cursor:pointer;
 
-    cursor:pointer;
-
-    transition:0.3s;
+transition:0.3s;
 
 }
 
 button:hover{
 
-    transform:scale(1.08);
-
-    box-shadow:0 0 15px #00ff88;
+transform:scale(1.08);
 
 }
 
 .footer{
 
-    margin-top:20px;
+margin-top:20px;
 
-    color:#888;
+font-size:12px;
 
-    font-size:12px;
-
-}
-
-.smoke{
-
-    position:absolute;
-
-    width:200px;
-
-    height:200px;
-
-    background:rgba(255,255,255,0.03);
-
-    border-radius:50%;
-
-    filter:blur(30px);
-
-    animation:float 10s infinite linear;
-
-}
-
-.smoke:nth-child(1){
-
-    top:10%;
-    left:10%;
-
-}
-
-.smoke:nth-child(2){
-
-    bottom:10%;
-    right:10%;
-
-    animation-duration:15s;
-
-}
-
-@keyframes float{
-
-    0%{
-        transform:translateY(0px);
-    }
-
-    50%{
-        transform:translateY(-30px);
-    }
-
-    100%{
-        transform:translateY(0px);
-    }
+color:#888;
 
 }
 
 </style>
 </head>
-<body>
 
-<div class="smoke"></div>
-<div class="smoke"></div>
+<body>
 
 <div class="player">
 
@@ -235,7 +169,7 @@ button:hover{
 
 <div class="footer">
 
-Say My Name 🎵
+Say My Name
 
 </div>
 
@@ -257,43 +191,41 @@ const songName = document.getElementById("songName");
 
 function loadSong(index){
 
-    audio.src = songs[index];
+audio.src = songs[index];
 
-    let name = songs[index]
-        .split("/")
-        .pop();
+songName.innerText = songs[index]
+.split("/")
+.pop();
 
-    songName.innerText = name;
-
-    audio.play();
+audio.play();
 
 }
 
 function nextSong(){
 
-    currentSong++;
+currentSong++;
 
-    if(currentSong >= songs.length){
+if(currentSong >= songs.length){
 
-        currentSong = 0;
+currentSong = 0;
 
-    }
+}
 
-    loadSong(currentSong);
+loadSong(currentSong);
 
 }
 
 function prevSong(){
 
-    currentSong--;
+currentSong--;
 
-    if(currentSong < 0){
+if(currentSong < 0){
 
-        currentSong = songs.length - 1;
+currentSong = songs.length - 1;
 
-    }
+}
 
-    loadSong(currentSong);
+loadSong(currentSong);
 
 }
 
@@ -305,14 +237,4 @@ loadSong(currentSong);
 
 </body>
 </html>
-```
-
-```javascript
-const songs = [
-
-"songs/mp3.mp3",
-"songs/song2.mp3",
-"songs/song3.mp3"
-
-];
 ```
