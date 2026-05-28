@@ -253,6 +253,7 @@ NEXT SONG
 
 <script>
 
+```javascript
 const songs = [
 
 "https://archive.org/download/dariush-booye-gandom/Dariush+-+Cheshme+Man.mp3",
@@ -304,7 +305,11 @@ songs[index]
 .replaceAll("+"," ")
 );
 
-audio.load();
+}
+
+function playSong(){
+
+audio.play();
 
 }
 
@@ -326,9 +331,9 @@ audio.play();
 
 audio.addEventListener("ended", nextSong);
 
-audio.addEventListener("canplay", () => {
+loadSong(currentSong);
+```
 
-audio.play();
 
 });
 
