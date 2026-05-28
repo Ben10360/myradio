@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scarface Radio</title>
+<title>BEN10 RADIO</title>
 
 <style>
 
@@ -20,8 +20,8 @@ body{
 height:100vh;
 
 background:
-linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
-url('https://wallpapercave.com/wp/wp7009536.jpg');
+linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
+url('https://wallpapercave.com/wp/wp1987632.jpg');
 
 background-size:cover;
 background-position:center;
@@ -30,9 +30,9 @@ display:flex;
 justify-content:center;
 align-items:center;
 
-color:white;
-
 overflow:hidden;
+
+color:white;
 
 }
 
@@ -47,13 +47,15 @@ border-radius:35px;
 
 backdrop-filter:blur(15px);
 
-border:1px solid rgba(255,255,255,0.08);
+border:1px solid rgba(0,255,136,0.15);
 
 display:flex;
 
 padding:20px;
 
 gap:20px;
+
+box-shadow:0 0 40px rgba(0,255,136,0.15);
 
 }
 
@@ -67,6 +69,8 @@ border-radius:25px;
 
 padding:25px;
 
+border:1px solid rgba(255,255,255,0.05);
+
 }
 
 .logo{
@@ -74,9 +78,11 @@ padding:25px;
 font-size:35px;
 font-weight:bold;
 
-color:#ff2a2a;
+color:#00ff88;
 
 margin-bottom:40px;
+
+text-shadow:0 0 15px #00ff88;
 
 }
 
@@ -110,7 +116,9 @@ transition:0.3s;
 
 .menu button:hover{
 
-background:#ff2a2a;
+background:#00ff88;
+
+color:black;
 
 transform:translateX(5px);
 
@@ -140,7 +148,7 @@ inset:0;
 
 background:
 linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.9)),
-url('https://wallpapercave.com/wp/wp7009536.jpg');
+url('https://wallpapercave.com/wp/wp1987632.jpg');
 
 background-size:cover;
 background-position:center;
@@ -160,7 +168,9 @@ font-size:90px;
 
 font-weight:bold;
 
-color:rgba(255,0,0,0.7);
+color:rgba(0,255,136,0.7);
+
+text-shadow:0 0 25px #00ff88;
 
 }
 
@@ -203,6 +213,8 @@ border-radius:25px;
 
 object-fit:cover;
 
+box-shadow:0 0 35px rgba(0,255,136,0.3);
+
 }
 
 .info h1{
@@ -225,7 +237,9 @@ font-size:18px;
 
 display:inline-block;
 
-background:#ff2a2a;
+background:#00ff88;
+
+color:black;
 
 padding:10px 18px;
 
@@ -246,9 +260,9 @@ border-radius:50%;
 
 border:none;
 
-background:#ff2a2a;
+background:#00ff88;
 
-color:white;
+color:black;
 
 font-size:45px;
 
@@ -256,7 +270,7 @@ cursor:pointer;
 
 transition:0.3s;
 
-box-shadow:0 0 35px rgba(255,0,0,0.4);
+box-shadow:0 0 35px rgba(0,255,136,0.4);
 
 }
 
@@ -271,6 +285,8 @@ audio{
 width:100%;
 
 margin-top:25px;
+
+filter:hue-rotate(80deg);
 
 }
 
@@ -309,7 +325,9 @@ transition:0.3s;
 
 .social div:hover{
 
-background:#ff2a2a;
+background:#00ff88;
+
+color:black;
 
 transform:translateY(-5px);
 
@@ -358,11 +376,11 @@ text-align:center;
 
 <div class="sidebar">
 
-<div class="logo">MYRADIO</div>
+<div class="logo">BEN10 RADIO</div>
 
 <div class="menu">
 
-<button>🔴 LIVE RADIO</button>
+<button>🟢 LIVE RADIO</button>
 <button>🎵 PLAYLIST</button>
 <button>🕓 SCHEDULE</button>
 <button>⭐ FAVORITES</button>
@@ -377,19 +395,19 @@ text-align:center;
 
 <div class="hero"></div>
 
-<div class="title">SCARFACE</div>
+<div class="title">BEN10</div>
 
 <div class="player">
 
 <div class="top">
 
-<img class="cover" src="https://wallpapercave.com/wp/wp7009536.jpg">
+<img class="cover" src="https://wallpapercave.com/wp/wp1987632.jpg">
 
 <div class="info">
 
 <div class="live">● LIVE</div>
 
-<h1>MY RADIO</h1>
+<h1>BEN10 RADIO</h1>
 
 <p id="songName">Loading...</p>
 
@@ -422,13 +440,8 @@ const songs = [
 
 "songs/Ahange Shahlay Man [SevilMusic] - Copy.mp3",
 "songs/Ahange Shahlay Man [SevilMusic].mp3",
-"songs/Dariush - Baradar Jaan - Copy.mp3",
 "songs/Dariush - Baradar Jaan.mp3",
-"songs/Dariush - Be man Nagoo Dooset Daram - Copy.mp3",
-"songs/Dariush - Be man Nagoo Dooset Daram.mp3",
 "songs/Dariush - Bonbast.mp3",
-"songs/Dariush - Booye Gandom.mp3",
-"songs/Dariush - Cheshme Man.mp3",
 "songs/Dariush - Faryad Zire Aab.mp3",
 "songs/Habib - Nafas [320].mp3",
 "songs/Habib - Maro Baash [320].mp3"
