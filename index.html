@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Radio</title>
+
+<style>
+body{
+    background:#111;
+    color:white;
+    font-family:sans-serif;
+    text-align:center;
+    padding-top:50px;
+}
+
+.player{
+    width:300px;
+    margin:auto;
+    background:#222;
+    padding:20px;
+    border-radius:20px;
+}
+
+button{
+    padding:10px 20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    margin:5px;
+}
+
+h1{
+    color:#00ffcc;
+}
+</style>
+
+</head>
+<body>
+
+<div class="player">
+<h1>🎵 My Radio</h1>
+
+<p id="songName">Loading...</p>
+
+<audio id="audio" controls autoplay></audio>
+
+<br><br>
+
+<button onclick="prevSong()">⏮ قبلی</button>
+<button onclick="nextSong()">⏭ بعدی</button>
+
+</div>
+
+<script>
+
+const songs = [
+
+"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+
+"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+
+"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3"
+
+];
+
+let currentSong = 0;
+
+const audio = document.getElementById("audio");
+const songName = document.getElementById("songName");
+
+function loadSong(index){
+
+    audio.src = songs[index];
+
+    songName.innerText = "Song " + (index + 1);
+
+    audio.play();
+}
+
+function nextSong(){
+
+    currentSong++;
+
+    if(currentSong >= songs.length){
+        currentSong = 0;
+    }
+
+    loadSong(currentSong);
+}
+
+function prevSong(){
+
+    currentSong--;
+
+    if(currentSong < 0){
+        currentSong = songs.length - 1;
+    }
+
+    loadSong(currentSong);
+}
+
+audio.addEventListener("ended", nextSong);
+
+loadSong(currentSong);
+
+</script>
+
+</body>
+</html>
