@@ -1,10 +1,16 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>BEN10 RADIO</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -12,19 +18,19 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
+font-family:'Poppins',sans-serif;
 }
 
 body{
 
-height:100vh;
-
 background:
-linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
-url('https://wallpapercave.com/wp/wp16354549.webp');
+radial-gradient(circle at top left,#00ff8840,transparent 30%),
+radial-gradient(circle at bottom right,#00ff8830,transparent 30%),
+#050816;
 
-background-size:cover;
-background-position:center;
+color:white;
+
+height:100vh;
 
 display:flex;
 justify-content:center;
@@ -32,404 +38,220 @@ align-items:center;
 
 overflow:hidden;
 
-color:white;
-
 }
 
-.container{
+/* BACKGROUND */
 
-width:95%;
-height:92vh;
+.blur{
 
-background:rgba(0,0,0,0.45);
+position:absolute;
 
-border-radius:35px;
-
-backdrop-filter:blur(15px);
-
-border:1px solid rgba(0,255,136,0.15);
-
-display:flex;
-
-padding:20px;
-
-gap:20px;
-
-box-shadow:0 0 40px rgba(0,255,136,0.15);
-
-}
-
-.sidebar{
-
-width:250px;
-
-background:rgba(0,0,0,0.6);
-
-border-radius:25px;
-
-padding:25px;
-
-border:1px solid rgba(255,255,255,0.05);
-
-}
-
-.logo{
-
-font-size:35px;
-font-weight:bold;
-
-color:#00ff88;
-
-margin-bottom:40px;
-
-text-shadow:0 0 15px #00ff88;
-
-}
-
-.menu{
-
-display:flex;
-flex-direction:column;
-gap:18px;
-
-}
-
-.menu button{
-
-background:rgba(255,255,255,0.05);
-
-border:none;
-
-padding:18px;
-
-border-radius:18px;
-
-color:white;
-
-font-size:16px;
-
-cursor:pointer;
-
-transition:0.3s;
-
-}
-
-.menu button:hover{
+width:500px;
+height:500px;
 
 background:#00ff88;
 
-color:black;
+filter:blur(180px);
 
-transform:translateX(5px);
+opacity:0.15;
 
-}
+border-radius:50%;
 
-.main{
-
-flex:1;
-
-position:relative;
-
-display:flex;
-align-items:flex-end;
-
-padding:30px;
-
-overflow:hidden;
-
-border-radius:30px;
+top:-150px;
+left:-100px;
 
 }
 
-.hero{
+/* CARD */
 
-position:absolute;
-inset:0;
+.card{
 
-background:
-linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.9)),
-url('https://wallpapercave.com/wp/wp16354549.webp');
+width:420px;
 
-background-size:cover;
-background-position:center;
-
-z-index:-1;
-
-}
-
-.title{
-
-position:absolute;
-
-top:40px;
-right:50px;
-
-font-size:90px;
-
-font-weight:bold;
-
-color:rgba(0,255,136,0.7);
-
-text-shadow:0 0 25px #00ff88;
-
-}
-
-.player{
-
-width:100%;
-
-background:rgba(0,0,0,0.55);
-
-border-radius:30px;
-
-padding:30px;
-
-backdrop-filter:blur(10px);
+background:rgba(255,255,255,0.04);
 
 border:1px solid rgba(255,255,255,0.08);
 
-}
+backdrop-filter:blur(25px);
 
-.top{
+border-radius:35px;
 
-display:flex;
+padding:30px;
 
-justify-content:space-between;
+box-shadow:0 0 50px rgba(0,255,136,0.08);
 
-align-items:center;
+position:relative;
 
-gap:20px;
-
-flex-wrap:wrap;
+z-index:2;
 
 }
+
+/* TITLE */
+
+.logo{
+
+text-align:center;
+
+font-size:38px;
+font-weight:700;
+
+color:#00ff88;
+
+margin-bottom:25px;
+
+text-shadow:0 0 20px #00ff88;
+
+}
+
+/* IMAGE */
 
 .cover{
 
-width:180px;
-height:180px;
+width:100%;
+height:280px;
 
-border-radius:25px;
+border-radius:28px;
 
 object-fit:cover;
 
-box-shadow:0 0 35px rgba(0,255,136,0.3);
+margin-bottom:25px;
+
+border:2px solid rgba(0,255,136,0.2);
 
 }
 
-.info h1{
+/* SONG */
 
-font-size:42px;
-
-margin-bottom:10px;
-
-}
-
-.info p{
-
-color:#aaa;
-
-font-size:18px;
-
-}
-
-.live{
-
-display:inline-block;
-
-background:#00ff88;
-
-color:black;
-
-padding:10px 18px;
-
-border-radius:12px;
-
-margin-bottom:15px;
-
-font-weight:bold;
-
-}
-
-.play-btn{
-
-width:120px;
-height:120px;
-
-border-radius:50%;
-
-border:none;
-
-background:#00ff88;
-
-color:black;
-
-font-size:45px;
-
-cursor:pointer;
-
-transition:0.3s;
-
-box-shadow:0 0 35px rgba(0,255,136,0.4);
-
-}
-
-.play-btn:hover{
-
-transform:scale(1.08);
-
-}
-
-audio{
-
-width:100%;
-
-margin-top:25px;
-
-filter:hue-rotate(80deg);
-
-}
-
-.social{
-
-display:flex;
-
-justify-content:flex-end;
-
-gap:15px;
-
-margin-top:20px;
-
-}
-
-.social div{
-
-width:55px;
-height:55px;
-
-border-radius:50%;
-
-background:rgba(255,255,255,0.08);
-
-display:flex;
-justify-content:center;
-align-items:center;
+.song{
 
 font-size:22px;
+font-weight:600;
 
-cursor:pointer;
-
-transition:0.3s;
-
-}
-
-.social div:hover{
-
-background:#00ff88;
-
-color:black;
-
-transform:translateY(-5px);
-
-}
-
-@media(max-width:900px){
-
-.container{
-
-flex-direction:column;
-
-height:auto;
-
-}
-
-.sidebar{
-
-width:100%;
-
-}
-
-.title{
-
-font-size:45px;
-
-right:20px;
-
-}
-
-.top{
-
-flex-direction:column;
+margin-bottom:10px;
 
 text-align:center;
 
 }
 
+.artist{
+
+text-align:center;
+
+color:#999;
+
+margin-bottom:25px;
+
+}
+
+/* AUDIO */
+
+audio{
+
+width:100%;
+
+filter:hue-rotate(70deg);
+
+margin-bottom:20px;
+
+}
+
+/* BUTTON */
+
+.btn{
+
+width:100%;
+
+padding:16px;
+
+border:none;
+
+border-radius:18px;
+
+background:#00ff88;
+
+color:black;
+
+font-size:16px;
+font-weight:700;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 25px #00ff88;
+
+}
+
+/* ABOUT */
+
+.about{
+
+margin-top:20px;
+
+text-align:center;
+
+}
+
+.about a{
+
+color:#00ff88;
+
+text-decoration:none;
+
+font-size:15px;
+
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="container">
+<div class="blur"></div>
 
-<div class="sidebar">
+<div class="card">
 
-<div class="logo">BEN10 RADIO</div>
-
-<div class="menu">
-
-<button>🟢 LIVE RADIO</button>
-<button onclick="window.open('https://t.me/Nasiri4440')">💬 CHAT</button>
-<button onclick="window.open('https://aboutme.amirali-nasiri-200.workers.dev/')"> 👤 درباره من </button>
-
+<div class="logo">
+BEN10 RADIO
 </div>
 
+<img class="cover"
+src="https://wallpapercave.com/wp/wp16354549.webp">
+
+<div class="song" id="songName">
+Loading...
 </div>
 
-<div class="main">
-
-<div class="hero"></div>
-
-<div class="title">BEN10</div>
-
-<div class="player">
-
-<div class="top">
-
-<img class="cover" src="https://wallpapercave.com/wp/wp16354549.webp">
-
-<div class="info">
-
-<div class="live">● LIVE</div>
-
-<h1>BEN10 RADIO</h1>
-
-<p id="songName">Loading...</p>
-
-</div>
-
-<button class="play-btn" onclick="togglePlay()">▶</button>
-
+<div class="artist">
+24/7 Online Radio
 </div>
 
 <audio id="audio" controls></audio>
 
-<div class="social">
+<button class="btn" onclick="nextSong()">
+NEXT SONG
+</button>
 
->
+<div class="about">
 
-</div>
+<a href="https://google.com" target="_blank">
 
-</div>
+👤 About Me
+
+</a>
 
 </div>
 
 </div>
 
 <script>
-
 
 const songs = [
 
@@ -465,37 +287,24 @@ const songs = [
 
 ];
 
-
-
 let currentSong = 0;
 
 const audio = document.getElementById("audio");
 const songName = document.getElementById("songName");
-const playBtn = document.querySelector(".play-btn");
 
 function loadSong(index){
 
 audio.src = songs[index];
 
-songName.innerText = songs[index]
+songName.innerText = decodeURIComponent(
+songs[index]
 .split("/")
-.pop();
+.pop()
+.replace(".mp3","")
+.replaceAll("+"," ")
+);
 
-}
-
-function togglePlay(){
-
-if(audio.paused){
-
-
-playBtn.innerHTML = "⏸";
-
-}else{
-
-audio.pause();
-playBtn.innerHTML = "▶";
-
-}
+audio.load();
 
 }
 
@@ -517,10 +326,16 @@ audio.play();
 
 audio.addEventListener("ended", nextSong);
 
-loadSong(currentSong);
-
 audio.addEventListener("canplay", () => {
 
 audio.play();
 
+});
+
+loadSong(currentSong);
+
+</script>
+
+</body>
+</html>
 ```
