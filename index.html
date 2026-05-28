@@ -519,8 +519,8 @@ audio.addEventListener("ended", nextSong);
 
 loadSong(currentSong);
 
-</script>
+audio.addEventListener("canplay", () => {
 
-</body>
-</html>
+audio.play();
+
 ```
