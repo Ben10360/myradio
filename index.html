@@ -1,65 +1,113 @@
+# Breaking Bad Style Radio Player
+
+فایل `index.html` را کامل پاک کن و این کد را جایگزین کن:
+
 ```html
 <!DOCTYPE html>
 <html lang="fa">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>My Radio</title>
+<title>Breaking Bad Radio</title>
 
 <style>
 
-body{
+*{
     margin:0;
     padding:0;
-    background:linear-gradient(135deg,#111,#222);
-    font-family:sans-serif;
-    color:white;
+    box-sizing:border-box;
+}
+
+body{
+
     height:100vh;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
+    font-family:sans-serif;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1600&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center;
+
+    overflow:hidden;
+
 }
 
 .player{
 
-    width:350px;
-    background:#1b1b1b;
+    width:370px;
+
+    background:rgba(20,20,20,0.85);
+
+    border:2px solid #00ff88;
+
     border-radius:25px;
+
     padding:30px;
+
     text-align:center;
 
+    backdrop-filter:blur(10px);
+
     box-shadow:
-    0 0 30px rgba(0,255,200,0.2);
+    0 0 20px #00ff88,
+    0 0 40px rgba(0,255,136,0.3);
 
 }
 
 .logo{
 
-    font-size:70px;
+    font-size:80px;
+
     margin-bottom:10px;
 
 }
 
 h1{
 
-    margin:10px 0;
-    color:#00ffd5;
+    color:#00ff88;
+
+    font-size:35px;
+
+    margin-bottom:10px;
+
+    letter-spacing:2px;
+
+}
+
+.subtitle{
+
+    color:#ccc;
+
+    margin-bottom:20px;
 
 }
 
 #songName{
 
+    color:#fff;
+
     margin-top:20px;
+
     font-size:15px;
-    color:#ccc;
+
+    word-break:break-word;
 
 }
 
 audio{
 
     width:100%;
+
     margin-top:20px;
+
+    filter:hue-rotate(80deg);
 
 }
 
@@ -71,43 +119,110 @@ audio{
 
 button{
 
-    background:#00ffd5;
+    background:#00ff88;
+
     border:none;
-    padding:12px 20px;
+
+    color:black;
+
+    padding:12px 18px;
+
     margin:5px;
+
     border-radius:12px;
+
     font-size:16px;
+
+    font-weight:bold;
+
     cursor:pointer;
+
     transition:0.3s;
 
 }
 
 button:hover{
 
-    transform:scale(1.05);
+    transform:scale(1.08);
+
+    box-shadow:0 0 15px #00ff88;
 
 }
 
 .footer{
 
     margin-top:20px;
+
+    color:#888;
+
     font-size:12px;
-    color:#666;
+
+}
+
+.smoke{
+
+    position:absolute;
+
+    width:200px;
+
+    height:200px;
+
+    background:rgba(255,255,255,0.03);
+
+    border-radius:50%;
+
+    filter:blur(30px);
+
+    animation:float 10s infinite linear;
+
+}
+
+.smoke:nth-child(1){
+
+    top:10%;
+    left:10%;
+
+}
+
+.smoke:nth-child(2){
+
+    bottom:10%;
+    right:10%;
+
+    animation-duration:15s;
+
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-30px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
 
 }
 
 </style>
 </head>
-
 <body>
+
+<div class="smoke"></div>
+<div class="smoke"></div>
 
 <div class="player">
 
-<div class="logo">🎧</div>
+<div class="logo">🧪</div>
 
-<h1>My Radio</h1>
+<h1>BREAKING RADIO</h1>
 
-<p>24/7 Online Music</p>
+<p class="subtitle">Walter White FM</p>
 
 <p id="songName">Loading...</p>
 
@@ -123,7 +238,7 @@ button:hover{
 
 <div class="footer">
 
-Powered by Cloudflare
+Say My Name 🎵
 
 </div>
 
@@ -131,14 +246,11 @@ Powered by Cloudflare
 
 <script>
 
-
 const songs = [
 
 "songs/mp3.mp3"
 
 ];
-```
-
 
 let currentSong = 0;
 
@@ -196,4 +308,22 @@ loadSong(currentSong);
 
 </body>
 </html>
+```
+
+بعد:
+
+1. روی `Commit changes`
+2. یک دقیقه صبر کن
+3. سایت را Refresh کن
+
+اگر بعداً چند آهنگ داشتی فقط این قسمت را زیاد کن:
+
+```javascript
+const songs = [
+
+"songs/mp3.mp3",
+"songs/song2.mp3",
+"songs/song3.mp3"
+
+];
 ```
