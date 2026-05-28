@@ -1,54 +1,131 @@
+```html
 <!DOCTYPE html>
 <html lang="fa">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>My Radio</title>
 
 <style>
+
 body{
-    background:#111;
-    color:white;
+    margin:0;
+    padding:0;
+    background:linear-gradient(135deg,#111,#222);
     font-family:sans-serif;
-    text-align:center;
-    padding-top:50px;
+    color:white;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .player{
-    width:300px;
-    margin:auto;
-    background:#222;
-    padding:20px;
-    border-radius:20px;
+
+    width:350px;
+    background:#1b1b1b;
+    border-radius:25px;
+    padding:30px;
+    text-align:center;
+
+    box-shadow:
+    0 0 30px rgba(0,255,200,0.2);
+
 }
 
-button{
-    padding:10px 20px;
-    border:none;
-    border-radius:10px;
-    cursor:pointer;
-    margin:5px;
+.logo{
+
+    font-size:70px;
+    margin-bottom:10px;
+
 }
 
 h1{
-    color:#00ffcc;
-}
-</style>
 
+    margin:10px 0;
+    color:#00ffd5;
+
+}
+
+#songName{
+
+    margin-top:20px;
+    font-size:15px;
+    color:#ccc;
+
+}
+
+audio{
+
+    width:100%;
+    margin-top:20px;
+
+}
+
+.buttons{
+
+    margin-top:20px;
+
+}
+
+button{
+
+    background:#00ffd5;
+    border:none;
+    padding:12px 20px;
+    margin:5px;
+    border-radius:12px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+
+}
+
+button:hover{
+
+    transform:scale(1.05);
+
+}
+
+.footer{
+
+    margin-top:20px;
+    font-size:12px;
+    color:#666;
+
+}
+
+</style>
 </head>
+
 <body>
 
 <div class="player">
-<h1>🎵 My Radio</h1>
+
+<div class="logo">🎧</div>
+
+<h1>My Radio</h1>
+
+<p>24/7 Online Music</p>
 
 <p id="songName">Loading...</p>
 
 <audio id="audio" controls autoplay></audio>
 
-<br><br>
+<div class="buttons">
 
-<button onclick="prevSong()">⏮ قبلی</button>
-<button onclick="nextSong()">⏭ بعدی</button>
+<button onclick="prevSong()">⏮ Prev</button>
+
+<button onclick="nextSong()">Next ⏭</button>
+
+</div>
+
+<div class="footer">
+
+Powered by Cloudflare
+
+</div>
 
 </div>
 
@@ -56,22 +133,30 @@ h1{
 
 const songs = [
 
-"songs/Dariush - Faryad Zire Aab.mp3"
+"songs/song1.mp3",
+"songs/song2.mp3",
+"songs/song3.mp3"
 
 ];
 
 let currentSong = 0;
 
 const audio = document.getElementById("audio");
+
 const songName = document.getElementById("songName");
 
 function loadSong(index){
 
     audio.src = songs[index];
 
-    songName.innerText = "Song " + (index + 1);
+    let name = songs[index]
+        .split("/")
+        .pop();
+
+    songName.innerText = name;
 
     audio.play();
+
 }
 
 function nextSong(){
@@ -79,10 +164,13 @@ function nextSong(){
     currentSong++;
 
     if(currentSong >= songs.length){
+
         currentSong = 0;
+
     }
 
     loadSong(currentSong);
+
 }
 
 function prevSong(){
@@ -90,10 +178,13 @@ function prevSong(){
     currentSong--;
 
     if(currentSong < 0){
+
         currentSong = songs.length - 1;
+
     }
 
     loadSong(currentSong);
+
 }
 
 audio.addEventListener("ended", nextSong);
@@ -104,3 +195,4 @@ loadSong(currentSong);
 
 </body>
 </html>
+```
