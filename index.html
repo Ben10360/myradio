@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Breaking Radio</title>
+<title>Scarface Radio</title>
 
 <style>
 
@@ -12,113 +12,95 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
 
 height:100vh;
 
-display:flex;
-justify-content:center;
-align-items:center;
-
-font-family:Arial, sans-serif;
-
-background:#000;
-
-background-image:
-linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)),
+background:
+linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.95)),
 url('https://wallpapercave.com/wp/wp7009536.jpg');
 
 background-size:cover;
 background-position:center;
 
+display:flex;
+justify-content:center;
+align-items:center;
+
 color:white;
+
+overflow:hidden;
 
 }
 
-.player{
+.container{
 
-width:350px;
+width:95%;
+height:92vh;
 
-background:rgba(0,0,0,0.7);
+background:rgba(0,0,0,0.45);
 
-border:2px solid #00ff88;
+border-radius:35px;
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,0.08);
+
+display:flex;
+
+padding:20px;
+
+gap:20px;
+
+}
+
+.sidebar{
+
+width:250px;
+
+background:rgba(0,0,0,0.6);
 
 border-radius:25px;
 
-padding:30px;
-
-text-align:center;
-
-backdrop-filter:blur(8px);
-
-box-shadow:0 0 25px #00ff88;
+padding:25px;
 
 }
 
 .logo{
 
-font-size:70px;
-margin-bottom:10px;
+font-size:35px;
+font-weight:bold;
+
+color:#ff2a2a;
+
+margin-bottom:40px;
 
 }
 
-h1{
+.menu{
 
-font-size:32px;
-color:#00ff88;
-
-margin-bottom:10px;
-
-}
-
-.subtitle{
-
-color:#ccc;
-margin-bottom:20px;
+display:flex;
+flex-direction:column;
+gap:18px;
 
 }
 
-#songName{
+.menu button{
 
-margin-top:20px;
-
-font-size:15px;
-
-color:#fff;
-
-}
-
-audio{
-
-width:100%;
-
-margin-top:20px;
-
-}
-
-.buttons{
-
-margin-top:20px;
-
-}
-
-button{
-
-background:#00ff88;
+background:rgba(255,255,255,0.05);
 
 border:none;
 
-padding:12px 18px;
+padding:18px;
 
-margin:5px;
+border-radius:18px;
 
-border-radius:12px;
+color:white;
 
 font-size:16px;
-
-font-weight:bold;
 
 cursor:pointer;
 
@@ -126,19 +108,244 @@ transition:0.3s;
 
 }
 
-button:hover{
+.menu button:hover{
+
+background:#ff2a2a;
+
+transform:translateX(5px);
+
+}
+
+.main{
+
+flex:1;
+
+position:relative;
+
+display:flex;
+align-items:flex-end;
+
+padding:30px;
+
+overflow:hidden;
+
+border-radius:30px;
+
+}
+
+.hero{
+
+position:absolute;
+inset:0;
+
+background:
+linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.9)),
+url('https://wallpapercave.com/wp/wp7009536.jpg');
+
+background-size:cover;
+background-position:center;
+
+z-index:-1;
+
+}
+
+.title{
+
+position:absolute;
+
+top:40px;
+right:50px;
+
+font-size:90px;
+
+font-weight:bold;
+
+color:rgba(255,0,0,0.7);
+
+}
+
+.player{
+
+width:100%;
+
+background:rgba(0,0,0,0.55);
+
+border-radius:30px;
+
+padding:30px;
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,0.08);
+
+}
+
+.top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+}
+
+.cover{
+
+width:180px;
+height:180px;
+
+border-radius:25px;
+
+object-fit:cover;
+
+}
+
+.info h1{
+
+font-size:42px;
+
+margin-bottom:10px;
+
+}
+
+.info p{
+
+color:#aaa;
+
+font-size:18px;
+
+}
+
+.live{
+
+display:inline-block;
+
+background:#ff2a2a;
+
+padding:10px 18px;
+
+border-radius:12px;
+
+margin-bottom:15px;
+
+font-weight:bold;
+
+}
+
+.play-btn{
+
+width:120px;
+height:120px;
+
+border-radius:50%;
+
+border:none;
+
+background:#ff2a2a;
+
+color:white;
+
+font-size:45px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+box-shadow:0 0 35px rgba(255,0,0,0.4);
+
+}
+
+.play-btn:hover{
 
 transform:scale(1.08);
 
 }
 
-.footer{
+audio{
+
+width:100%;
+
+margin-top:25px;
+
+}
+
+.social{
+
+display:flex;
+
+justify-content:flex-end;
+
+gap:15px;
 
 margin-top:20px;
 
-font-size:12px;
+}
 
-color:#888;
+.social div{
+
+width:55px;
+height:55px;
+
+border-radius:50%;
+
+background:rgba(255,255,255,0.08);
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:22px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+}
+
+.social div:hover{
+
+background:#ff2a2a;
+
+transform:translateY(-5px);
+
+}
+
+@media(max-width:900px){
+
+.container{
+
+flex-direction:column;
+
+height:auto;
+
+}
+
+.sidebar{
+
+width:100%;
+
+}
+
+.title{
+
+font-size:45px;
+
+right:20px;
+
+}
+
+.top{
+
+flex-direction:column;
+
+text-align:center;
+
+}
 
 }
 
@@ -147,29 +354,63 @@ color:#888;
 
 <body>
 
-<div class="player">
+<div class="container">
 
-<div class="logo">🧪</div>
+<div class="sidebar">
 
-<h1>BREAKING RADIO</h1>
+<div class="logo">MYRADIO</div>
 
-<p class="subtitle">Walter White FM</p>
+<div class="menu">
 
-<p id="songName">Loading...</p>
-
-<audio id="audio" controls autoplay></audio>
-
-<div class="buttons">
-
-<button onclick="prevSong()">⏮ Prev</button>
-
-<button onclick="nextSong()">Next ⏭</button>
+<button>🔴 LIVE RADIO</button>
+<button>🎵 PLAYLIST</button>
+<button>🕓 SCHEDULE</button>
+<button>⭐ FAVORITES</button>
+<button>💬 CHAT</button>
+<button>ℹ ABOUT</button>
 
 </div>
 
-<div class="footer">
+</div>
 
-Say My Name
+<div class="main">
+
+<div class="hero"></div>
+
+<div class="title">SCARFACE</div>
+
+<div class="player">
+
+<div class="top">
+
+<img class="cover" src="https://wallpapercave.com/wp/wp7009536.jpg">
+
+<div class="info">
+
+<div class="live">● LIVE</div>
+
+<h1>MY RADIO</h1>
+
+<p id="songName">Loading...</p>
+
+</div>
+
+<button class="play-btn" onclick="togglePlay()">▶</button>
+
+</div>
+
+<audio id="audio" controls></audio>
+
+<div class="social">
+
+<div>📷</div>
+<div>✈</div>
+<div>🎧</div>
+<div>🌐</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -179,15 +420,26 @@ Say My Name
 
 const songs = [
 
-"songs/mp3.mp3"
+"songs/Ahange Shahlay Man [SevilMusic] - Copy.mp3",
+"songs/Ahange Shahlay Man [SevilMusic].mp3",
+"songs/Dariush - Baradar Jaan - Copy.mp3",
+"songs/Dariush - Baradar Jaan.mp3",
+"songs/Dariush - Be man Nagoo Dooset Daram - Copy.mp3",
+"songs/Dariush - Be man Nagoo Dooset Daram.mp3",
+"songs/Dariush - Bonbast.mp3",
+"songs/Dariush - Booye Gandom.mp3",
+"songs/Dariush - Cheshme Man.mp3",
+"songs/Dariush - Faryad Zire Aab.mp3",
+"songs/Habib - Nafas [320].mp3",
+"songs/Habib - Maro Baash [320].mp3"
 
 ];
 
 let currentSong = 0;
 
 const audio = document.getElementById("audio");
-
 const songName = document.getElementById("songName");
+const playBtn = document.querySelector(".play-btn");
 
 function loadSong(index){
 
@@ -197,7 +449,21 @@ songName.innerText = songs[index]
 .split("/")
 .pop();
 
+}
+
+function togglePlay(){
+
+if(audio.paused){
+
 audio.play();
+playBtn.innerHTML = "⏸";
+
+}else{
+
+audio.pause();
+playBtn.innerHTML = "▶";
+
+}
 
 }
 
@@ -213,19 +479,7 @@ currentSong = 0;
 
 loadSong(currentSong);
 
-}
-
-function prevSong(){
-
-currentSong--;
-
-if(currentSong < 0){
-
-currentSong = songs.length - 1;
-
-}
-
-loadSong(currentSong);
+audio.play();
 
 }
 
